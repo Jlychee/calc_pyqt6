@@ -275,9 +275,15 @@ class Window(QMainWindow):
 
     def res(self):
         if '/' in self.result_label.text():
-            self.result_label.setText(str(round(eval(self.result_label.text()), 9)))
+            try:
+                self.result_label.setText(str(round(eval(self.result_label.text()), 9)))
+            except Exception:
+                pass
         else:
-            self.result_label.setText(str(eval(self.result_label.text())))
+            try:
+                self.result_label.setText(str(eval(self.result_label.text())))
+            except Exception:
+                pass
 
 
 def application():
